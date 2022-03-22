@@ -10,6 +10,7 @@ import {
   getBalloons,
   SavingAfterEdit,
   SendingUpdateToBalloon,
+  Sent,
 } from '../home/side-bar/state/balloons.actions';
 import { Balloons } from '../_models/balloon.model';
 import * as balloonsSelector from '../home/side-bar/balloons.state';
@@ -45,21 +46,15 @@ export class DynamicFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions as QuestionBase<string>[]);
+    this.state$.subscribe((data) => {
+      this.updated_balloon = data.updatedBalloon;
+    });
   }
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
-    console.log(this.payLoad);
     this.balloon = this.form.value;
     if (this.createMode) {
-      // this.state$.subscribe((data) => {
-      //   this.balloon.user_id = data.user_id;
-      // });
-      // // this.balloon._id = uuidv4();
-      // // this.balloon.user_id = '123_HH';
-      console.log(this.balloon);
-
-      console.log('in dynamic forms create form');
       this.state$.subscribe((data) => {
         this.user_id = data.user_id;
       });
@@ -67,26 +62,12 @@ export class DynamicFormComponent implements OnInit {
       this.store.dispatch(CreateNewBalloon({ balloon: this.balloon }));
       this.store.dispatch(getBalloons({ user_id: this.user_id }));
     } else {
-      console.log('in edit mode ');
-      console.log(this.balloon);
-      // this.state$.subscribe((data) => {
-      //   this.edit_baloon_id = data.balloonToEdit._id || '';
-      // });
-      //this.balloon._id = this.form.value('_id');
-      //this.store.dispatch(EditBalloon({ balloon: this.balloon }));
       this.store.dispatch(SavingAfterEdit({ balloon: this.balloon }));
-      this.state$.subscribe((data) => {
-        this.updated_balloon = data.updatedBalloon;
-      });
-      console.log('got updated balloon');
-      console.log(this.updated_balloon);
       this.store.dispatch(
         SendingUpdateToBalloon({ updatedBalloon: this.updated_balloon })
       );
-      console.log('in dynamic forms edit form');
+      this.store.dispatch(Sent({ updatedBalloon: this.updated_balloon }));
     }
-
-    console.log(this.balloon.latitude);
     this.dialogRef.close();
   }
   OnReset() {

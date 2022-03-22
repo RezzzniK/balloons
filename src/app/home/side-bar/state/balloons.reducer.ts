@@ -13,6 +13,7 @@ import {
   RemoveBaloons,
   getUserId,
   SendingUpdateToBalloon,
+  Sent,
 } from '../state/balloons.actions';
 
 export interface balloonState {
@@ -94,7 +95,12 @@ export const balloonReducer = createReducer(
   })),
   on(SendingUpdateToBalloon, (state, action) => ({
     ...state,
-    updatedBalloon: undefined,
+    updatedBalloon: state.balloons.find(
+      (x) => x._id === state.updatedBalloon._id
+    ),
+  })),
+  on(Sent, (state, action) => ({
+    ...state,
   })),
   on(CallingForCreate, (state) => ({
     ...state,

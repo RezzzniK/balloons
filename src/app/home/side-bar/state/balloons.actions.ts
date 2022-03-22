@@ -23,8 +23,16 @@ export const SavingAfterEdit = createAction(
   'Saving after edit',
   props<{ balloon: Balloons }>()
 );
+// export const SendingUpdateToBalloon = createAction(
+//   'Sending updated balloon',
+//   props<{ updatedBalloon: Balloons }>()
+// );
 export const SendingUpdateToBalloon = createAction(
   'Sending updated balloon',
+  props<{ updatedBalloon: Balloons }>()
+);
+export const Sent = createAction(
+  'Balloon sent to BackEnd',
   props<{ updatedBalloon: Balloons }>()
 );
 export const CallingForCreate = createAction('calling for create action');

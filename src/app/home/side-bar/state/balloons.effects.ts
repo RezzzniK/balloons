@@ -13,6 +13,7 @@ import {
   RemoveBaloons,
   SavingAfterEdit,
   SendingUpdateToBalloon,
+  Sent,
   showBalloons,
 } from '../state/balloons.actions';
 import { BalloonsService } from '../../../_services/balloons.service';
@@ -75,44 +76,34 @@ export class BalloonsEffects {
     { dispatch: false }
   );
   saveBalloon$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(SavingAfterEdit)
-        // exhaustMap(
-        //   (action) =>
-        //     this.getBalloonsReq.editBalloon(action.balloon)
-        //     //action.balloon, action._id
-        //   //.pipe(
-        //   //   map((data) => {
-        //   //     console.log('in EditBalloons Effects');
-        //   //     console.log(data.body);
-        //   //     return { balloon: data.body };
-        //   //   })
-        //   // )
-        // )
-      ),
+    () => this.actions$.pipe(ofType(SavingAfterEdit)),
     { dispatch: false }
   );
-  sendBalloon$ = createEffect(
+  // sendBalloon$ = createEffect(
+  //   () =>
+  //     this.actions$.pipe(
+  //       ofType(SendingUpdateToBalloon),
+  //       tap((action) => {
+  //         Sent({ updatedBalloon: action.updatedBalloon });
+  //       })
+  //     ),
+  //   { dispatch: false }
+  // );
+  sent$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(SendingUpdateToBalloon),
-        exhaustMap(
-          (action) =>
-            this.getBalloonsReq.editBalloon(action.updatedBalloon)
-
-          //action.balloon, action._id
-          //.pipe(
-          //   map((data) => {
-          //     console.log('in EditBalloons Effects');
-          //     console.log(data.body);
-          //     return { balloon: data.body };
-          //   })
-          // )
+        ofType(Sent),
+        exhaustMap((action) =>
+          this.getBalloonsReq.editBalloon(action.updatedBalloon)
         )
       ),
     { dispatch: false }
   );
+  // exhaustMap(
+  //   (action) =>
+  //     this.getBalloonsReq.editBalloon(action.updatedBalloon)
+
+  // )
 
   //       tap((action)=>{
   //         SavingAfterEdit(action.balloon)

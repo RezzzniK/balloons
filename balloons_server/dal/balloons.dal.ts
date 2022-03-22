@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
-import balloon from '../models/schemas/balloon.model';
-import balloonEdit from '../models/schemas/balloonEditSchema';
 
+import balloon from '../models/schemas/balloon.model';
 import { env } from '../constants/env';
 
 mongoose.connect(`${env.Balloon_DB}`).then(() => {
