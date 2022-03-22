@@ -6,7 +6,6 @@ import { SideBarDialogComponent } from '../home/side-bar/side-bar-dialog/side-ba
 
 import {
   CreateNewBalloon,
-  EditBalloon,
   getBalloons,
   SavingAfterEdit,
   SendingUpdateToBalloon,
@@ -16,7 +15,6 @@ import { Balloons } from '../_models/balloon.model';
 import * as balloonsSelector from '../home/side-bar/balloons.state';
 import { QuestionBase } from './question-base';
 import { QuestionControlService } from './question-control.service';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-dynamic-form',

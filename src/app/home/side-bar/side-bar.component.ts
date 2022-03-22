@@ -30,7 +30,7 @@ export class SideBarComponent implements OnInit {
   balloons_state$ = this.store.select(balloonsSelector.selectFeatureBalloons);
   focus$ = this.store.select(focusSelector.selectFocusFeature);
   balloons: Balloons[] = [];
-  user_id: string;
+  user_id?: string = undefined;
   questions$: Observable<QuestionBase<any>[]>;
   editMode = false;
   getBalloonsClicked = false;
@@ -47,7 +47,7 @@ export class SideBarComponent implements OnInit {
       this.balloons = data.balloons;
     });
     this.userState.subscribe((id) => {
-      this.user_id = id.userS._id;
+      this.user_id = id.userS._id || null;
     });
     this.store.dispatch(getUserId({ user_id: this.user_id }));
     //this.store.dispatch

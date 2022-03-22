@@ -22,7 +22,7 @@ export class LoginEffects {
         this.request.login(action.user).pipe(
           map((data) => {
             console.log('in LoginProcess Effects');
-            console.log(data.body);
+
             return LoginSuccess({ user: data.body });
           }),
           catchError(() => of(LoginFailed()))

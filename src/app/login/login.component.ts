@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.user.username = this.loginForm.value['username'];
     this.user.password = this.loginForm.value['password'];
-    console.log(this.loginForm.value);
     this.checkNamePass(this.user.username, this.user.password);
     this.store.dispatch(LoginInProcess({ user: this.user }));
     this.showSpinner = true;
