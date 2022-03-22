@@ -1,0 +1,80 @@
+<section>
+  <div class="get-baloons">
+    <button mat-raised-button color="warn" (click)="GetBalloons()">
+      Get Balloons
+    </button>
+    <button mat-raised-button color="primary" (click)="CreateBaloon()">
+      Create New Balloon
+    </button>
+  </div>
+  <span *ngIf="balloons">
+    <mat-accordion>
+      <mat-expansion-panel hideToggle *ngFor="let balloon of balloons">
+        <mat-expansion-panel-header>
+          <button mat-raised-button color="accent" (click)="focusOn(balloon)">
+            Focus on
+          </button>
+          <mat-panel-title>
+            <h3>Name: {{ balloon.name }}</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <h3>Id: {{ balloon._id }}</h3>
+          </mat-list-item>
+          <mat-list-item role="listitem"
+            >Color: {{ balloon.color }}</mat-list-item
+          >
+          <mat-list-item role="listitem"
+            >Description: {{ balloon.description }}</mat-list-item
+          >
+          <mat-list-item role="listitem"
+            >Type: {{ balloon.type }}</mat-list-item
+          >
+          <mat-list-item role="listitem"
+            >User ID: {{ balloon.user_id }}</mat-list-item
+          >
+          <mat-list-item role="listitem">
+            Longitude: {{ balloon.longitude }}</mat-list-item
+          >
+          <mat-list-item role="listitem_pos"
+            >Latitude: {{ balloon.latitude }}</mat-list-item
+          >
+          <mat-list-item role="listitem_pos"
+            >Altitude: {{ balloon.altitude }}</mat-list-item
+          >
+          <mat-list-item role="listitem_pos">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="EditBalloon(balloon)"
+            >
+              Edit Balloon
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <h1>
+      <br />
+    </h1>
+  </span>
+</section>
+<mat-divider></mat-divider>
+<!-- <div *ngIf="editButtonClicked">
+  <app-side-bar-dialog
+    [editOrCreate]="createButtonClicked"
+  ></app-side-bar-dialog>
+  <!-- <h2>Edit Balloon</h2>
+  <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form> -->
+<!-- <h1 mat-dialog-title>Edit Balloon</h1>
+  <div mat-dialog-content>
+    <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
+  </div>
+  <div mat-dialog-actions> -->
+<!-- <button mat-button (click)="onNoClick()">No Thanks</button> -->
+<!-- <button mat-button [mat-dialog-close]="balloons$" cdkFocusInitial>
+      Save
+    </button> -->
+<!-- </div> -->
+<!-- </div> -->

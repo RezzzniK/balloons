@@ -1,0 +1,31 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 5;
+  border: solid;
+}
+.div2 {
+  grid-area: 2 / 3 / 15 / 4;
+  border-left: solid;
+}
+.parent {
+  background-color: dimgray;
+}
+/* .map {
+  height: 100%;
+  width: 100%;
+} */
+
+/* .app-map {
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+} */

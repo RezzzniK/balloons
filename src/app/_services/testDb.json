@@ -1,0 +1,56 @@
+{
+  "login": {
+    "status": 200,
+    "message": "OK",
+    "body": {
+      "user": {
+        "username": "Rezzz",
+        "password": "rrroro$23si",
+        "_id": "123_HH"
+      },
+      "active": true
+    }
+  },
+
+  "balloon": {
+    "status": 200,
+    "message": "OK",
+    "body": {
+      "balloons": [
+        {
+          "_id": "1324",
+          "name": "carl",
+          "color": "RED",
+          "description": "",
+          "type": "1000",
+          "longitude": "-90.110693",
+          "latitude": "36.0994841",
+          "altitude": "500",
+          "user_id": "123_HH"
+        },
+        {
+          "_id": "54321",
+          "name": "dog",
+          "color": "BLUE",
+          "description": "",
+          "type": "300",
+          "longitude": "-112.1107",
+          "latitude": "38.099485",
+          "altitude": "2000",
+          "user_id": "123_HH"
+        },
+        {
+          "_id": "6782",
+          "name": "richard",
+          "color": "WHITE",
+          "description": "",
+          "type": "4000",
+          "longitude": "-120.111",
+          "latitude": "40.0995",
+          "altitude": "150",
+          "user_id": "123_HH"
+        }
+      ]
+    }
+  }
+}

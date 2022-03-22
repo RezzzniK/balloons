@@ -1,0 +1,8 @@
+.mat-card {
+  position: absolute;
+  top: 68px;
+  right: 508px;
+  bottom: 0px;
+  left: 0px;
+}
+@import url(../templates/bucket.css);

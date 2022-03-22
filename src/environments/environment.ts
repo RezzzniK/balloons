@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  IS_MOCK: true,
+  Base_URL: 'http://localhost:4201',
+  User_URL: 'http://localhost:4202',
+  Balloon_URL:'http://localhost:4203'
+
 };
 
 /*

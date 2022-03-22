@@ -9,6 +9,9 @@
 
 # dependencies
 /node_modules
+/user_server/node_modules
+/server/node_modules
+/balloons_server/node_modules
 
 # profiling files
 chrome-profiler-events*.json

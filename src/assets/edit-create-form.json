@@ -1,0 +1,73 @@
+{
+  "controls": [
+    {
+      "controllerType": "textbox",
+      "key": "name",
+      "label": "Balloon Name",
+      "value": "",
+      "required": true,
+      "order": 1
+    },
+    {
+      "controllerType": "textbox",
+      "required": true,
+      "key": "description",
+      "label": "Description",
+      "value": "",
+      "order": 2
+    },
+    {
+      "controllerType": "dropdown",
+      "key": "type",
+      "label": "Type",
+      "required": true,
+      "options": [
+        { "key": "small", "value": "small" },
+        { "key": "medium", "value": "medium" },
+        { "key": "big", "value": "big" },
+        { "key": "double", "value": "double" }
+      ],
+      "order": 3
+    },
+    {
+      "controllerType": "dropdown",
+      "key": "color",
+      "label": "Color",
+      "required": true,
+      "options": [
+        { "key": "black", "value": "Black" },
+        { "key": "white", "value": "White" },
+        { "key": "red", "value": "Red" },
+        { "key": "vlue", "value": "Blue" }
+      ],
+      "order": 4
+    },
+    {
+      "controllerType": "textbox",
+      "key": "longitude",
+      "label": "Longitude",
+      "required": false,
+      "type": "number",
+      "order": 5,
+      "value": 0
+    },
+    {
+      "controllerType": "textbox",
+      "key": "latitude",
+      "label": "Latitude",
+      "required": false,
+      "type": "number",
+      "order": 6,
+      "value": 0
+    },
+    {
+      "controllerType": "textbox",
+      "key": "altitude",
+      "label": "Altitude",
+      "required": false,
+      "type": "number",
+      "order": 7,
+      "value": 0
+    }
+  ]
+}

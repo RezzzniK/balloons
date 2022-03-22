@@ -1,0 +1,20 @@
+<mat-toolbar color="accent">
+  <mat-toolbar-row>
+    <span class="logo"
+      ><img src="{{ imagePath }}" alt="Logo" class="responsive"
+    /></span>
+    <span *ngIf="username$ | async as user">
+      <h1>{{ user.username! }}</h1>
+    </span>
+    <span>
+      <button mat-raised-button color="primary" (click)="LogOut()">
+        LogOut
+        <mat-icon aria-hidden="false" aria-label="logout icon"
+          >exit_to_app</mat-icon
+        >
+      </button>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- -->
