@@ -14,7 +14,8 @@ export const editBalloonDb = async (balloonz: Object) => {
   console.log('printing newBalon before update');
   console.log(newBalloon);
   //console.log(await newBalloon.find({ _id: bid }));
-  await newBalloon.update({ _id: newBalloon._id }, { newBalloon });
+  //await newBalloon.update({ _id: newBalloon._id }, { newBalloon });
+  await balloon.updateOne({ _id: newBalloon._id }, newBalloon);
   //await newBalloon.save();
   return await balloon.find({ user_id: newBalloon.user_id });
 };
