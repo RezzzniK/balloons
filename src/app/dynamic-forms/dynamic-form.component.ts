@@ -65,6 +65,7 @@ export class DynamicFormComponent implements OnInit {
         SendingUpdateToBalloon({ updatedBalloon: this.updated_balloon })
       );
       this.store.dispatch(Sent({ updatedBalloon: this.updated_balloon }));
+      this.store.dispatch(getBalloons({ user_id: this.user_id }));
     }
     this.dialogRef.close();
   }

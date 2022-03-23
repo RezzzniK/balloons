@@ -27,6 +27,15 @@ export class CesiumDirective implements OnInit {
     this.viewer = new Cesium.Viewer(this.el.nativeElement, {
       shouldAnimate: true,
     });
+    // const scene = this.viewer.scene;
+    // const ellipsoid = scene.globe.ellipsoid;
+    // const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+    // const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
+    // handler.setInputAction(function (movement) {
+    //   console.log(
+    //     Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, position)
+    //   );
+    // }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
 
     console.log('in ng of cesium');
     this.store$.subscribe((data) => {

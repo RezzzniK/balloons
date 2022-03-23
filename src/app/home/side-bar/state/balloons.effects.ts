@@ -45,7 +45,7 @@ export class BalloonsEffects {
             data.body.forEach((element) => {
               console.log(element.name);
             });
-            // RemoveBaloons();
+            //RemoveBaloons();
             return showBalloons({ balloons: data.body });
           })
         )
