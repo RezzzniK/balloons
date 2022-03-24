@@ -33,6 +33,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 
+import { ToastrModule } from 'ngx-toastr';
+
 import { DynamicFormComponent } from './dynamic-forms/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './dynamic-forms/dynamic-form-question.component';
 import { SideBarDialogComponent } from './home/side-bar/side-bar-dialog/side-bar-dialog.component';
@@ -79,6 +81,7 @@ import { FocusEffects } from './home/side-bar/focus-state/focus-balloon.effects'
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatSelectModule,
+    ToastrModule.forRoot(),
     EffectsModule.forRoot([LoginEffects, BalloonsEffects, FocusEffects]),
     StoreModule.forRoot({
       login: loginReducer,
