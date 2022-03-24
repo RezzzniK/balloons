@@ -31,6 +31,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
+
 import { DynamicFormComponent } from './dynamic-forms/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './dynamic-forms/dynamic-form-question.component';
 import { SideBarDialogComponent } from './home/side-bar/side-bar-dialog/side-bar-dialog.component';
@@ -71,6 +73,7 @@ import { FocusEffects } from './home/side-bar/focus-state/focus-balloon.effects'
     MatDialogModule,
     MatInputModule,
     MatTableModule,
+    MatTabsModule,
     MatMenuModule,
     MatDialogModule,
     MatProgressSpinnerModule,

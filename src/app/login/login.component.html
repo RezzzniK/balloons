@@ -1,4 +1,90 @@
-<mat-card class="example-card">
+<mat-tab-group color="accent">
+  <mat-tab label="Log In">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-subtitle>
+          <mat-icon aria-hidden="false" aria-label="icon"
+            >login</mat-icon
+          ></mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="loginForm">
+          <table class="example" cellspacing="0">
+            <tr>
+              <td>
+                <mat-icon aria-hidden="false" aria-label="icon"
+                  >account_circle</mat-icon
+                >
+                <mat-form-field class="example">
+                  <input
+                    matInput
+                    placeholder="Username"
+                    id="username"
+                    class="form-control"
+                    formControlName="username"
+                    required
+                  />
+                  <span
+                    *ngIf="
+                      !loginForm.get('username').valid &&
+                      loginForm.get('username').touched
+                    "
+                    class="help-block"
+                    >Please add a valid username</span
+                  >
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-icon aria-hidden="false" aria-label="icon">key</mat-icon>
+                <mat-form-field class="example-full-width">
+                  <input
+                    matInput
+                    placeholder="Password"
+                    type="password"
+                    id="password"
+                    formControlName="password"
+                    class="form-control"
+                    required
+                  />
+                  <span
+                    *ngIf="
+                      !loginForm.get('password').valid &&
+                      loginForm.get('password').touched
+                    "
+                    class="help-block"
+                    >Please add a valid password <br />
+                    <span *ngIf="checkObj.pass !== 'valid'">{{
+                      checkObj.pass
+                    }}</span>
+                  </span>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <mat-spinner
+          [style.display]="showSpinner ? 'block' : 'none'"
+        ></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          class="btn btn-warning"
+          [disabled]="!loginForm.valid"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Sign Up"></mat-tab>
+</mat-tab-group>
+
+<!-- <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>Login</mat-card-title>
     <mat-card-subtitle>
@@ -75,4 +161,4 @@
       Submit
     </button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
