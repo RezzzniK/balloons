@@ -1,6 +1,6 @@
 import Joi from 'joi';
 export const BalloonValidatorSchema = Joi.object().keys({
-  _id: Joi.string().required(),
+  _id: Joi.string(),
   user_id: Joi.string().required(),
   name: Joi.string().min(4).max(25).required(),
   description: Joi.string().min(4).max(150).required(),

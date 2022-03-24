@@ -31,7 +31,7 @@ export class DynamicFormComponent implements OnInit {
   user_id: string;
   updated_balloon: Balloons;
   createMode: boolean;
-
+  showSpinner: boolean;
   constructor(
     private qcs: QuestionControlService,
     private store: Store,
@@ -47,9 +47,11 @@ export class DynamicFormComponent implements OnInit {
     this.state$.subscribe((data) => {
       this.updated_balloon = data.updatedBalloon;
     });
+    this.showSpinner = false;
   }
 
   onSubmit() {
+    this.showSpinner = true;
     this.payLoad = JSON.stringify(this.form.getRawValue());
     this.balloon = this.form.value;
     if (this.createMode) {

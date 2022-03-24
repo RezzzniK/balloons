@@ -16,6 +16,9 @@
       <button mat-raised-button color="warn" type="reset" (click)="OnReset()">
         Reset
       </button>
+      <mat-spinner
+        [style.display]="showSpinner ? 'block' : 'none'"
+      ></mat-spinner>
     </div>
   </form>
 </mat-card>
