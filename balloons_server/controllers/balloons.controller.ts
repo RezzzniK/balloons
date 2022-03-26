@@ -41,17 +41,6 @@ export const createBalloon = async (req: any, res: any) => {
       error: error,
     });
   }
-  // const balloons = await createBalloonDb(req.body.balloon);
-  // console.log('how');
-  // console.log(balloons);
-  // if (Object.keys(balloons).length === 0) {
-  //   console.log('404');
-  //   //res.send(balloons);
-  // } else {
-  //   console.log('200');
-  //   console.log(balloons);
-  //   res.send(balloons);
-  // }
 };
 export const balloonsByUser = async (req: any, res: any) => {
   console.log(req.body.user_id);

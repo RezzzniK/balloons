@@ -74,7 +74,7 @@
         <button
           class="btn btn-warning"
           [disabled]="!loginForm.valid"
-          (click)="onSubmit()"
+          (click)="onSubmit('login')"
         >
           Submit
         </button>
@@ -93,7 +93,7 @@
         >
       </mat-card-header>
       <mat-card-content>
-        <form [formGroup]="loginForm">
+        <form [formGroup]="createForm">
           <table class="example" cellspacing="0">
             <tr>
               <td>
@@ -104,18 +104,18 @@
                   <input
                     matInput
                     placeholder="Username"
-                    id="username"
+                    id="usernameCr"
                     class="form-control"
-                    formControlName="username"
+                    formControlName="usernameCr"
                     required
                   />
                   <span
                     *ngIf="
-                      !loginForm.get('username').valid &&
-                      loginForm.get('username').touched
+                      !createForm.get('usernameCr').valid &&
+                      createForm.get('usernameCr').touched
                     "
                     class="help-block"
-                    >Please add a valid username</span
+                    >{{ createObj.name }}</span
                   >
                 </mat-form-field>
               </td>
@@ -130,20 +130,20 @@
                     matInput
                     placeholder="Password"
                     type="password"
-                    id="password"
-                    formControlName="password"
+                    id="passwordCr"
+                    formControlName="passwordCr"
                     class="form-control"
                     required
                   />
                   <span
                     *ngIf="
-                      !loginForm.get('password').valid &&
-                      loginForm.get('password').touched
+                      !createForm.get('passwordCr').valid &&
+                      createForm.get('passwordCr').touched
                     "
                     class="help-block"
                     >Please add a valid password <br />
-                    <span *ngIf="checkObj.pass !== 'valid'">{{
-                      checkObj.pass
+                    <span *ngIf="createObj.pass !== 'valid'">{{
+                      createObj.pass
                     }}</span>
                   </span>
                 </mat-form-field>
@@ -157,20 +157,20 @@
                     matInput
                     placeholder="Retype Password"
                     type="password"
-                    id="password"
-                    formControlName="password"
+                    id="passwordRcR"
+                    formControlName="passwordRcR"
                     class="form-control"
                     required
                   />
                   <span
                     *ngIf="
-                      !loginForm.get('password').valid &&
-                      loginForm.get('password').touched
+                      !createForm.get('passwordRcR').valid &&
+                      createForm.get('passwordRcR').touched
                     "
                     class="help-block"
                     >Please add a valid password <br />
-                    <span *ngIf="checkObj.pass !== 'valid'">{{
-                      checkObj.pass
+                    <span *ngIf="createObj.repass !== 'valid'">{{
+                      createObj.repass
                     }}</span>
                   </span>
                 </mat-form-field>
@@ -185,8 +185,8 @@
       <mat-card-actions>
         <button
           class="btn btn-warning"
-          [disabled]="!loginForm.valid"
-          (click)="onSubmit()"
+          [disabled]="!createForm.valid"
+          (click)="onSubmit('create')"
         >
           Create User
         </button>
