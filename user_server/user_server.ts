@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/login', userMicroServiceRoutes);
+app.use('', userMicroServiceRoutes);
 
 app.listen(env.PORT, '127.0.0.1', function () {
   console.log(`User-Server now listening on ${env.PORT}`);

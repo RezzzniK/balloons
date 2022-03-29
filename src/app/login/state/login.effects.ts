@@ -5,6 +5,7 @@ import { map, catchError, exhaustMap, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 import {
+  CreateUser,
   LoginFailed,
   LoginInProcess,
   LoginSuccess,
@@ -54,7 +55,23 @@ export class LoginEffects {
       ),
     { dispatch: false }
   );
+  createUser$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        // Filters by Action Creator 'login'
+        ofType(CreateUser),
+        exhaustMap((action) =>
+          this.request.createUser(action.user).pipe(
+            tap(() => {
+              console.log('in create=> Effects');
 
+              this.router.navigate(['..']);
+            })
+          )
+        )
+      ),
+    { dispatch: false }
+  );
   constructor(
     /*@Inject(Actions) */ private actions$: Actions,
     private request: RequestsService,

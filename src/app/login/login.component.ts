@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../_models/user.model';
-import { LoginInProcess } from './state/login.actions';
+import { CreateUser, LoginInProcess } from './state/login.actions';
 import { RequestsService } from '../_services/requests.service';
 
 @Component({
@@ -15,18 +15,15 @@ export class LoginComponent implements OnInit {
   user: User = { username: 'sadsfd', password: 'easfdg', _id: '12345' };
   loginForm: FormGroup;
   createForm: FormGroup;
-  // forbiddenCrPasswords = ['password'];
-  // forbiddenCrUserName;
   forbiddenPasswords = ['password'];
   forbiddenUserName = ['username'];
   checkObj = { name: '', pass: '' };
   createObj = { name: '', pass: '', repass: '' };
-  checkName = '';
   showSpinner = false;
   constructor(
     private store: Store,
     private httpService: RequestsService,
-    private toastr: ToastrService
+    private toastr: ToastrService // private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -61,15 +58,18 @@ export class LoginComponent implements OnInit {
       this.user.username = this.loginForm.value['username'];
       this.user.password = this.loginForm.value['password'];
       this.store.dispatch(LoginInProcess({ user: this.user }));
+      this.showSpinner = true;
     } else {
       this.user.username = this.createForm.value['usernameCr'];
       this.user.password = this.createForm.value['passwordCr'];
+      this.store.dispatch(CreateUser({ user: this.user }));
       console.log('create form submited');
-      console.log(this.user.password);
-      console.log(this.user.username);
+
+      this.toastr.success('User Created');
+      // console.log(this.user.password);
+      // console.log(this.user.username);
       //this.store.dispatch(LoginInProcess({ user: this.user }));
     }
-    this.showSpinner = true;
   }
 
   forbiddenPass(control: FormControl): { [s: string]: boolean } {

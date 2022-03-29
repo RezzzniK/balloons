@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
-app.use('/login', userRoutes);
+app.use('/user', userRoutes);
 app.use('/balloons', balloonRoutes);
 
 app.listen(env.PORT, '127.0.0.1', function () {
